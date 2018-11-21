@@ -1,4 +1,6 @@
-import ATV  #decodes ATV LCD
+import ATV #decodes ATV LCD
+import Snow
+import Sling
 import os
 
 def getStringVal(s):   #Miller's code to auto determine int base (2, 10, 16)
@@ -12,8 +14,25 @@ def getStringVal(s):   #Miller's code to auto determine int base (2, 10, 16)
     else:
         return int(s,base=10)
  
+lcd_type_selected=0
 
-lcd_type="ATV" 
+while lcd_type_selected==0:
+    print ("Enter LCD type: ATV, Snow, Sling")
+    lcd_select= input()
+    lcd_select=lcd_select.lower()
+    if lcd_select[0:2] == "at":
+        lcd_type="ATV"
+        lcd_type_selected=1
+        print ("ATV Selected")
+    elif lcd_select[0:2]== "sn":
+        lcd_type="Snow"
+        lcd_type_selected=1
+        print ("Snow Selected")
+    elif lcd_select[0:2]== "sl":
+        lcd_type="Sling"
+        lcd_type_selected=1
+        print ("Sling Selected")
+
 x=0
 y=0
 prev_raw_number=""
